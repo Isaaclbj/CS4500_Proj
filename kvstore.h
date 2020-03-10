@@ -2,6 +2,8 @@ class KVStore
 {
 public:
 	DataFrame kv;
+	int versionNumber;
+
 	KVStore() {};
 	~KVStore() {};
 

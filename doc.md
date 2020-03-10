@@ -22,10 +22,59 @@ Implementation: where we describe how the system is built, this can include a de
             void* getAndWait(Key k);
         };
 
+        class Key
+        {
+        public:
+            String name;
+            int val;
+
+        };
+
+        class Node
+        {
+        public:
+            bool leader();
+            KVStore kvs;
+            Node() {};
+            ~Node() {};
+
+            int communicate(Node* other);
+
+            KVStore getKVStore();
+
+            void run();
+        };
+
+        class Application : public Node
+        {
+        public:
+            
+            void run_();
+
+            size_t this_node();
+
+            void run_override();
+
+            void producer();
+
+            void counter();
+
+            void summarizer();
+
+        };
+
+
 
 
 Use cases: examples of uses of the system. This could be in the form of code like the one above. It is okay to leave this section mostly empty if there is nothing to say. Maybe just an example of creating a dataframe would be enough.
+    1. eau2 is called on multiple terminals, with one receiving an additional flag that designates that terminal's node to be the lead node.
+    2. Each node runs run_, which initializes themselves and their KVStores
+    3. Node A calls getAndWait on a key that does not exist in the network yet, and blocks.
+    4. Node B puts a matching key into its KVStore. 
+    5. Node A is in a blocking while loop, but discovers the key now exists in Node B's kvstore. It gets it and exists its blocking loop.
 
 Open questions: where you list things that you are not sure of and would like the answer to.
+    1. What are sample commands that customers will use other than get/put?
 
 Status: where you describe what has been done and give an estimate of the work that remains.
+    1. Design of the eau2 system and classes that will need to be implemented

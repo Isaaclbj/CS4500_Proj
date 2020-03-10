@@ -1,6 +1,7 @@
 class Node
 {
 public:
+	bool leader();
 	KVStore kvs;
 	Node() {};
 	~Node() {};
