@@ -77,4 +77,5 @@ Open questions: where you list things that you are not sure of and would like th
     1. What are sample commands that customers will use other than get/put?
 
 Status: where you describe what has been done and give an estimate of the work that remains.
-    1. Design of the eau2 system and classes that will need to be implemented
+    1. Design of the eau2 system layers and classes that will need to be implemented 
+    2. Fixed segfaulting error linked_array header class, but we will transition to STL functions/classes.
